@@ -16,3 +16,9 @@ To update:
 2. Open up the extensions page (Window -> Extensions)
 3. Under to "Quiz Parser", click "Reload"
 4. You will also have to reload the quiz webpage.
+
+
+Protips:
+- Use excel
+- Select everything, Sort A-Z
+- Select everything, Data -> Remove Duplicates
