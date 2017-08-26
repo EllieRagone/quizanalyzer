@@ -28,7 +28,7 @@ var run = function() {
       })
     });
   });
-  var csv_data = JSONToCSVConvertor(questions, "questions", false);
+  var csv_data = JSONToCSVConvertor(questions, "questions", true);
   // copyToClipboard(csv_data);
 };
 
