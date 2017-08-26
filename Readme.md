@@ -22,4 +22,4 @@ Protips:
 - Use excel
 - Select everything, Sort A-Z
 - Select everything, Data -> Remove Duplicates
-- Select everything, hit "Word Wrap" twice
+- Select everything, hit "Wrap Text" twice
