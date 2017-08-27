@@ -16,7 +16,8 @@ var run = function() {
       $(ele).find('.questionTypeDisplay table tr').each(function(a,b) {  
         if ($.trim($(b).text()) != "") choices.push($.trim($(b).text()));
       });
-      questions.push({  
+
+      var data = {  
         "question": $.trim($(ele).find('.reviewQuestionText').text()), 
         "choices": choices, 
         "explanation": $.trim($(ele).find('.questionSection.reviewExpand.feedbackDisplay').text()), 
@@ -25,7 +26,24 @@ var run = function() {
             return true;
           };
         }).text())
-      })
+      };
+      if ($(ele).find('table tr td.correct, table tr td.incorrect').length > 0) {
+        // console.log('found correct or incorrect');
+        var rows = $(ele).find('table tr');
+
+        if ($(rows).find('td.correct').length > 0) {
+          // console.log('found correct');
+          // console.log($(rows).find('td.correct').parent().text().replace('Correct', '').trim());
+          data['answer'] = $(rows).find('td.correct').parent().text().replace('Correct', '').trim();
+        }
+
+        if ($(rows).find('td.incorrect').length > 0) {
+          // console.log('found incorrect');
+          // console.log($(rows).find('td.incorrect').parent().siblings().text().trim());
+          data['answer'] = $(rows).find('td.incorrect').parent().siblings().text().trim();
+        }
+      }
+      questions.push(data)
     });
   });
   var csv_data = JSONToCSVConvertor(questions, "questions", true);
